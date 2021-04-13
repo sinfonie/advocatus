@@ -1,0 +1,74 @@
+@import "_variables";
+
+body {
+  font: $primary-font;
+  color: $font-color;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $font-color;
+}
+
+section {
+  width: 100%;
+}
+
+.nav-menu {
+  display: flex;
+  text-transform: uppercase;
+  padding: 20px 0;
+  &__links {
+    font: $secondary-font;
+    margin-left: auto;
+    padding: 10px 0;
+    a {
+      margin: 0 10px;
+      padding: 5px 0;
+      border-bottom: solid transparent 5px;
+      transition: border 0.5s ease-out;
+      &:hover {
+        border-color: $primary-color;
+        transition: border 0.5s ease-out;
+      }
+    }
+  }
+  &__logo {
+    font-weight: 600;
+    span {
+      color: $primary-color;
+    }
+  }
+}
+.section {
+  height: 85vh;
+  &--hero {
+    background: linear-gradient(transparent 20%, rgba($dark-color, 1)), url("../img/hero.jpg");
+    background-position: 50% 20%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 100%;
+  }
+  &--dark {
+    background-color: $dark-color;
+  }
+  &--light {
+    background-color: $light-color;
+  }
+}
+
+.container {
+  margin: auto;
+  width: 100%;
+  @media (min-width: $screen-sm) {
+    max-width: 720px;
+  }
+  @media (min-width: $screen-md) {
+    max-width: 960px;
+  }
+  @media (min-width: $screen-lg) {
+    max-width: 1140px;
+  }
+}

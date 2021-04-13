@@ -1,0 +1,61 @@
+body {
+  font: normal 25px/1.25 "Playfair Display", serif;
+  color: #111111;
+  margin: 0;
+  padding: 0; }
+
+a {
+  text-decoration: none;
+  color: #111111; }
+
+section {
+  width: 100%; }
+
+.nav-menu {
+  display: flex;
+  text-transform: uppercase;
+  padding: 20px 0; }
+  .nav-menu__links {
+    font: normal 14px/1.25 "Open Sans", sans-serif;
+    margin-left: auto;
+    padding: 10px 0; }
+    .nav-menu__links a {
+      margin: 0 10px;
+      padding: 5px 0;
+      border-bottom: solid transparent 5px;
+      transition: border 0.5s ease-out; }
+      .nav-menu__links a:hover {
+        border-color: #e8bf5d;
+        transition: border 0.5s ease-out; }
+  .nav-menu__logo {
+    font-weight: 600; }
+    .nav-menu__logo span {
+      color: #e8bf5d; }
+
+.section {
+  height: 85vh; }
+  .section--hero {
+    background: linear-gradient(rgba(0, 0, 0, 0) 20%, #111111), url("../img/hero.jpg");
+    background-position: 50% 20%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 100%; }
+  .section--dark {
+    background-color: #111111; }
+  .section--light {
+    background-color: #fff; }
+
+.container {
+  margin: auto;
+  width: 100%; }
+  @media (min-width: 768px) {
+    .container {
+      max-width: 720px; } }
+  @media (min-width: 992px) {
+    .container {
+      max-width: 960px; } }
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1140px; } }
+
+/*# sourceMappingURL=main.css.map */
