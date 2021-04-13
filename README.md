@@ -1,2 +1,2 @@
 # advocatus
-Advocatus template
+Advocatus template for PA
