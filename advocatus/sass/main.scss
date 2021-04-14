@@ -5,9 +5,11 @@ body {
   color: $font-color;
   margin: 0;
   padding: 0;
+  counter-reset: myCounter;
 }
 
-a {
+a,
+button {
   text-decoration: none;
   color: $font-color;
 }
@@ -16,19 +18,49 @@ section {
   width: 100%;
 }
 
+button {
+  outline: none;
+  border: none;
+  background-color: #0000;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.decorator {
+  padding: 2.5em 0;
+  @media (max-width: $screen-md) {
+    margin: 0 5vw;
+  }
+}
+
 .nav-menu {
   display: flex;
   text-transform: uppercase;
   padding: 20px 0;
+  position: relative;
   &__links {
+    display: flex;
     font: $secondary-font;
     margin-left: auto;
-    padding: 10px 0;
+    margin-right: 1em;
+    padding: 0.5em 0;
+    @media (max-width: $screen-md) {
+      position: absolute;
+      display: flex;
+      width: calc(100% - 2em);
+      margin: 0;
+      background-color: $light-color;
+      flex-direction: column;
+      top: 100%;
+      padding: 1em;
+    }
     a {
-      margin: 0 10px;
+      margin: 0 1em;
       padding: 5px 0;
       border-bottom: solid transparent 5px;
-      transition: border 0.5s ease-out;
+      @media (max-width: $screen-md) {
+        width: max-content;
+      }
       &:hover {
         border-color: $primary-color;
         transition: border 0.5s ease-out;
@@ -37,38 +69,224 @@ section {
   }
   &__logo {
     font-weight: 600;
+    margin: 0 1em;
     span {
       color: $primary-color;
     }
   }
+  &__bars {
+    margin: 0 1em;
+    &:hover {
+      color: $primary-color;
+    }
+    @media (min-width: $screen-md) {
+      display: none;
+    }
+  }
 }
+
+.accesibility {
+  position: relative;
+  margin-left: auto;
+  display: flex;
+  @media (max-width: $screen-md) {
+    margin-right: 1em;
+  }
+  &__contrast {
+    padding-left: 1em;
+  }
+  &__sizing-menu {
+    position: absolute;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    top: calc(20px + 100%);
+    background-color: $light-color;
+    border: 1px solid rgba($dark-color, 0.3);
+    border-top-color: rgba($dark-color, 0.1);
+  }
+  &__sizing-btn {
+    font-family: $primary-font-family;
+    margin-right: auto;
+    transition: color 0.5s ease-out;
+    &:hover {
+      color: $primary-color;
+      transition: color 0.5s ease-out;
+    }
+    & span {
+      font-size: 15px;
+      vertical-align: middle;
+    }
+    &--contrast {
+      padding: 0 0 0 1em;
+    }
+  }
+}
+
 .section {
-  height: 85vh;
+  min-height: $section-height;
+
   &--hero {
+    min-height: 85vh;
     background: linear-gradient(transparent 20%, rgba($dark-color, 1)), url("../img/hero.jpg");
     background-position: 50% 20%;
     background-repeat: no-repeat;
     background-size: cover;
     min-width: 100%;
+    display: flex;
+    color: $light-color;
   }
   &--dark {
     background-color: $dark-color;
+    color: $light-color;
+    counter-increment: myCounter;
   }
   &--light {
     background-color: $light-color;
+    color: $dark-color;
+    counter-increment: myCounter;
+  }
+
+  &__description {
+    display: grid;
+    width: 95%;
+    margin: auto auto 5em;
+    grid-template-columns: 100%;
+    grid-gap: 1em;
+    @media (min-width: $screen-sm) {
+      width: 85%;
+      grid-template-columns: 70% 30%;
+    }
+    @media (min-width: $screen-md) {
+      width: 75%;
+    }
+    @media (min-width: $screen-lg) {
+      width: 65%;
+    }
+  }
+  &__header {
+    font-family: $primary-font-family;
+    position: relative;
+    margin: auto;
+    width: 70%;
+    margin: 0 1em 1.5em 0.5em;
+    &:before {
+      content: "";
+      background: $primary-color;
+      position: absolute;
+      bottom: 0.2em;
+      left: -0.5em;
+      height: 95%;
+      width: 2px;
+    }
+    &:after {
+      content: counter(myCounter);
+      font: $secondary-font-family;
+      position: absolute;
+      font-weight: 10em;
+      font-size: 180px;
+      z-index: -1;
+      top: -45px;
+      color: rgba($dark-color, 0.1);
+    }
+    & h2 {
+      font-size: 1.3em;
+      font-weight: 600;
+      margin: 0;
+      font-weight: initial;
+    }
+    & h3 {
+      font-size: 0.7em;
+      margin: 0;
+      letter-spacing: 2px;
+      font-weight: 300;
+    }
+    &--hero {
+      h2 {
+        font-size: 2em;
+      }
+      h3 {
+        font-family: $secondary-font-family;
+      }
+    }
+  }
+  &__images {
+    display: grid;
+    grid-template-columns: 1;
+    line-height: 1;
+    transition: opacity 0.5s ease-out;
+    @media (min-width: $screen-sm) {
+      grid-template-columns: repeat(2, 45%);
+      grid-gap: 10%;
+    }
+    @media (min-width: $screen-md) {
+      grid-template-columns: repeat(4, 20%);
+      grid-gap: 5%;
+    }
+    & a {
+      margin-bottom: 1em;
+    }
+
+    & a:hover img {
+      transition: opacity 0.5s ease-out;
+      opacity: 0.7;
+    }
+
+    & img {
+      max-width: 100%;
+      object-fit: cover;
+      height: 100%;
+      min-width: 100%;
+      max-height: calc(85vh / 3);
+    }
+    & h3 {
+      margin: 0.5em 0 0;
+      font-size: 1em;
+      transition: color 0.5s ease-out;
+      &:hover {
+        transition: color 0.5s ease-out;
+        color: $primary-color;
+      }
+    }
+    & span {
+      color: rgba($dark-color, 0.8);
+      font-size: 0.6em;
+      font-family: $secondary-font-family;
+    }
+  }
+}
+
+.button {
+  &__primary {
+    font-family: $primary-font-family;
+    font-size: 0.7em;
+    background-color: $primary-color;
+    border-radius: 20px;
+    color: $dark-color;
+    margin: auto;
+    padding: 1em 3em;
+    font-weight: 600;
+    &:hover {
+      background-color: rgba($primary-color, 0.8);
+    }
   }
 }
 
 .container {
   margin: auto;
   width: 100%;
-  @media (min-width: $screen-sm) {
-    max-width: 720px;
-  }
   @media (min-width: $screen-md) {
     max-width: 960px;
   }
   @media (min-width: $screen-lg) {
     max-width: 1140px;
+  }
+}
+
+.lines {
+  @media (min-width: $screen-md) {
+    @include lines;
+    min-height: inherit;
+    transform: translate3d(0, 0, 0);
   }
 }

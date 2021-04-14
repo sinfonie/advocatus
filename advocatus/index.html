@@ -7,7 +7,7 @@
   <!-- <link rel="icon" href="images/favicon.ico">  -->
   <!-- Bootstrap CSS -->
   <script src="https://kit.fontawesome.com/b1a91d8fad.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
     crossorigin="anonymous" />
   <link rel="stylesheet" href="css/main.css">
@@ -17,6 +17,7 @@
 <body>
   <header>
     <nav class="container nav-menu">
+      <button class="nav-menu__bars"><i class="fas fa-bars"></i></button>
       <div class="nav-menu__logo">advocatus<span>.</span></div>
       <div class="nav-menu__links">
         <a href="">About Us</a>
@@ -26,22 +27,67 @@
         <a href="">FAQ</a>
         <a href="">Contact</a>
       </div>
+      <div class="accesibility">
+        <button class="accesibility__sizing-btn">A</button>
+        <button class="accesibility__sizing-btn accesibility__sizing-btn--contrast">
+          <i class=" fas fa-eye"></i>
+        </button>
+        <div class="accesibility__sizing-menu">
+          <button class="accesibility__sizing-btn">A</button>
+          <button class="accesibility__sizing-btn">A<span>+</span></button>
+          <button class="accesibility__sizing-btn">A<span>++</span></button>
+        </div>
+      </div>
     </nav>
   </header>
 
-  <div class="content main-page">
-
-    <section class="section section--hero">
+  <div class="content">
+    <section id="hero" class="section section--hero">
+      <div class="section__description">
+        <div class="section__header section__header--hero">
+          <h2>Adam Suarez</h2>
+          <h3>Lawyer</h3>
+        </div>
+        <button class="button button__primary">Contact Me</button>
+      </div>
+    </section>
+    <section id="about-us" class="section section--light">
+      <div class="container lines">
+        <div class="section__header">
+          <h2>About us</h2>
+          <p>We are regarded as industry leaders in stunning website solutions, focused on delivering unsurpassed user
+            experiences</p>
+        </div>
+        <div class="section__paragraph">
+        </div>
+      </div>
+    </section>
+    <section id="practics-area" class="section section--dark">
       <div class="container"></div>
     </section>
-    <section class="section section--light">
-      <div class="container"></div>
-    </section>
-    <section class="section section--dark">
-      <div class="container"></div>
-    </section>
-    <section class="section section--light">
-      <div class="container"></div>
+    <section id="meet-our-attorney" class="section section--light">
+      <div class="container lines">
+        <div class="decorator">
+          <div class="section__header">
+            <h2>Meet Our Attorney</h2>
+            <p>We are regarded as industry leaders in stunning website solutions, focused on delivering unsurpassed user
+              experiences.</p>
+          </div>
+          <div class="section__images">
+            <a href=""><img alt="Attorney 1" src="/img/att-1.jpg" />
+              <h3>Adam Suarez</h3><span>Attorney General</span>
+            </a>
+            <a href=""><img alt="Attorney 1" src="/img/att-2.jpg" />
+              <h3>Lina Suarez</h3><span>Attorney General</span>
+            </a>
+            <a href=""><img alt="Attorney 1" src="/img/att-3.jpg" />
+              <h3>James Snow</h3><span>Attorney General</span>
+            </a>
+            <a href=""><img alt="Attorney 1" src="/img/att-4.jpg" />
+              <h3>Linister White</h3><span>Attorney General</span>
+            </a>
+          </div>
+        </div>
     </section>
     <section class="section section--dark">
       <div class="container"></div>

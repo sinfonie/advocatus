@@ -34,3 +34,21 @@ $screen-lg-desktop: $screen-lg !default;
 $screen-xs-max: ($screen-sm - 1) !default;
 $screen-sm-max: ($screen-md - 1) !default;
 $screen-md-max: ($screen-lg - 1) !default;
+
+$section-height: 60vh;
+
+
+$one-third: linear-gradient(90deg, transparent, transparent calc(100% / 3), rgba($dark-color, 0.3) calc(100% / 3 + 1px), transparent calc(100% / 3 + 1px));
+$two-thirds: linear-gradient(90deg, transparent, transparent calc(100% / 3 * 2 - 1px), rgba($dark-color, 0.3) calc(100% / 3 * 2), transparent calc(100% / 3 * 2 - 1px));
+$one-fourth: linear-gradient(90deg, transparent, transparent calc(100% / 4), rgba($dark-color, 0.3) calc(100% / 4 + 1px), transparent calc(100% / 4 + 1px));
+$half: linear-gradient(90deg, transparent, transparent calc(100% / 2), rgba($dark-color, 0.3) calc(100% / 2 + 1px), transparent calc(100% / 2 + 1px));
+$three-fourth: linear-gradient(90deg, transparent, transparent calc(100% / 4 * 3 - 1px), rgba($dark-color, 0.3) calc(100% / 4 * 3), transparent calc(100% / 4 * 3 - 1px));
+
+$first-last: (
+  linear-gradient(90deg, transparent, transparent 0, rgba($dark-color, 0.3) 1px, transparent 1px),
+  linear-gradient(90deg, transparent, transparent calc(100% - 1px), rgba($dark-color, 0.3) 100%, transparent 100%),
+);
+
+@mixin lines {
+  background-image: $first-last, $one-fourth, $one-third, $half, $two-thirds, $three-fourth;
+}
