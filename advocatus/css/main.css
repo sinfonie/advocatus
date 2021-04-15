@@ -8,7 +8,8 @@ body {
 a,
 button {
   text-decoration: none;
-  color: #111111; }
+  color: #111111;
+  background-color: transparent; }
 
 section {
   width: 100%; }
@@ -36,17 +37,20 @@ button {
     font: normal 14px/1.25 "Open Sans", sans-serif;
     margin-left: auto;
     margin-right: 1em;
-    padding: 0.5em 0; }
+    padding: 0.5em 0;
+    z-index: 4; }
     @media (max-width: 992px) {
       .nav-menu__links {
         position: absolute;
         display: flex;
-        width: calc(100% - 2em);
         margin: 0;
         background-color: #fff;
         flex-direction: column;
         top: 100%;
         padding: 1em; } }
+    @media (max-width: 480px) {
+      .nav-menu__links {
+        width: calc(100% - 2em); } }
     .nav-menu__links a {
       margin: 0 1em;
       padding: 5px 0;
@@ -62,10 +66,16 @@ button {
     margin: 0 1em; }
     .nav-menu__logo span {
       color: #e8bf5d; }
+    @media (max-width: 480px) {
+      .nav-menu__logo {
+        margin: 0 auto; } }
   .nav-menu__bars {
     margin: 0 1em; }
     .nav-menu__bars:hover {
       color: #e8bf5d; }
+    @media (max-width: 480px) {
+      .nav-menu__bars {
+        margin: 0 5px; } }
     @media (min-width: 992px) {
       .nav-menu__bars {
         display: none; } }
@@ -77,8 +87,14 @@ button {
   @media (max-width: 992px) {
     .accesibility {
       margin-right: 1em; } }
+  @media (max-width: 480px) {
+    .accesibility {
+      margin-right: 5px; } }
   .accesibility__contrast {
     padding-left: 1em; }
+    @media (max-width: 480px) {
+      .accesibility__contrast {
+        padding-left: 10px; } }
   .accesibility__sizing-menu {
     position: absolute;
     left: 0;
@@ -87,7 +103,8 @@ button {
     top: calc(20px + 100%);
     background-color: #fff;
     border: 1px solid rgba(17, 17, 17, 0.3);
-    border-top-color: rgba(17, 17, 17, 0.1); }
+    border-top-color: rgba(17, 17, 17, 0.1);
+    z-index: 5; }
   .accesibility__sizing-btn {
     font-family: "Playfair Display", serif;
     margin-right: auto;
@@ -100,17 +117,13 @@ button {
       vertical-align: middle; }
     .accesibility__sizing-btn--contrast {
       padding: 0 0 0 1em; }
+      @media (max-width: 480px) {
+        .accesibility__sizing-btn--contrast {
+          padding-left: 10px; } }
 
 .section {
   min-height: 60vh; }
   .section--hero {
-    min-height: 85vh;
-    background: linear-gradient(rgba(0, 0, 0, 0) 20%, #111111), url("../img/hero.jpg");
-    background-position: 50% 20%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-width: 100%;
-    display: flex;
     color: #fff; }
   .section--dark {
     background-color: #111111;
@@ -120,26 +133,9 @@ button {
     background-color: #fff;
     color: #111111;
     counter-increment: myCounter; }
-  .section__description {
-    display: grid;
-    width: 95%;
-    margin: auto auto 5em;
-    grid-template-columns: 100%;
-    grid-gap: 1em; }
-    @media (min-width: 768px) {
-      .section__description {
-        width: 85%;
-        grid-template-columns: 70% 30%; } }
-    @media (min-width: 992px) {
-      .section__description {
-        width: 75%; } }
-    @media (min-width: 1200px) {
-      .section__description {
-        width: 65%; } }
   .section__header {
     font-family: "Playfair Display", serif;
     position: relative;
-    margin: auto;
     width: 70%;
     margin: 0 1em 1.5em 0.5em; }
     .section__header:before {
@@ -152,7 +148,7 @@ button {
       width: 2px; }
     .section__header:after {
       content: counter(myCounter);
-      font: "Open Sans", sans-serif;
+      font-family: "Open Sans", sans-serif;
       position: absolute;
       font-weight: 10em;
       font-size: 180px;
@@ -209,13 +205,50 @@ button {
       font-size: 0.6em;
       font-family: "Open Sans", sans-serif; }
 
+.hero {
+  position: absolute;
+  bottom: 10%;
+  display: flex; }
+  @media (max-width: 992px) {
+    .hero {
+      flex-direction: column; } }
+  .hero__btn {
+    margin: auto; }
+    @media (max-width: 992px) {
+      .hero__btn {
+        margin-left: 10vw;
+        margin-bottom: 1em; } }
+  .hero__text {
+    font-family: "Playfair Display", serif;
+    position: relative;
+    width: 60%;
+    margin: auto; }
+    @media (max-width: 992px) {
+      .hero__text {
+        margin-left: 10vw;
+        margin-bottom: 1em; } }
+    .hero__text:before {
+      content: "";
+      background: #e8bf5d;
+      position: absolute;
+      bottom: 0.2em;
+      left: -0.5em;
+      height: 80%;
+      width: 2px; }
+    .hero__text h2 {
+      font-size: 2em;
+      margin: 0; }
+    .hero__text p {
+      font-size: 1em;
+      margin: 0;
+      font-family: "Open Sans", sans-serif; }
+
 .button__primary {
   font-family: "Playfair Display", serif;
   font-size: 0.7em;
   background-color: #e8bf5d;
   border-radius: 20px;
   color: #111111;
-  margin: auto;
   padding: 1em 3em;
   font-weight: 600; }
   .button__primary:hover {

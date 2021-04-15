@@ -7,10 +7,13 @@
   <!-- <link rel="icon" href="images/favicon.ico">  -->
   <!-- Bootstrap CSS -->
   <script src="https://kit.fontawesome.com/b1a91d8fad.js" crossorigin="anonymous"></script>
+  <script async src="js/main.js"></script>
+  <script src="js/slider.js"></script>
   <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
     crossorigin="anonymous" />
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/slider.css">
   <title>ADVOCATUS.</title>
 </head>
 
@@ -43,22 +46,46 @@
 
   <div class="content">
     <section id="hero" class="section section--hero">
-      <div class="section__description">
-        <div class="section__header section__header--hero">
-          <h2>Adam Suarez</h2>
-          <h3>Lawyer</h3>
+      <div id="slider-main">
+        <div class="slider__slide slider__slide--active" style="background-image: url('../img/hero1.jpg')">
+          <div class="hero container">
+            <div class="hero__text">
+              <h2>Adam Suarez</h2>
+              <p>Lawyer</p>
+            </div>
+            <button class="hero__btn button button__primary ">Contact Me</button>
+          </div>
         </div>
-        <button class="button button__primary">Contact Me</button>
-      </div>
+        <div class="slider__slide slider__slide--active" style="background-image: url('../img/hero2.jpg')">
+          <div class="hero container">
+            <div class="hero__text">
+              <h2>Lina Suarez</h2>
+              <p>Lawyer</p>
+            </div>
+            <button class="hero__btn button button__primary">Contact Me</button>
+          </div>
+        </div>
+        <div class="slider__slide slider__slide--active" style="background-image: url('../img/hero3.jpg')">
+          <div class="hero container">
+            <div class="hero__text">
+              <h2>Our Lawyers</h2>
+              <p>Lawyer</p>
+            </div>
+            <button class="hero__btn button button__primary">Contact Me</button>
+          </div>
+        </div>
     </section>
     <section id="about-us" class="section section--light">
       <div class="container lines">
         <div class="section__header">
-          <h2>About us</h2>
-          <p>We are regarded as industry leaders in stunning website solutions, focused on delivering unsurpassed user
-            experiences</p>
-        </div>
-        <div class="section__paragraph">
+          <div class="decorator">
+            <h2>About us</h2>
+            <p>We are regarded as industry leaders in stunning website solutions, focused on delivering unsurpassed user
+              experiences</p>
+          </div>
+          <div class="section__paragraph">
+            <div>
+          </div>
         </div>
       </div>
     </section>
@@ -102,7 +129,8 @@
   </div>
 
   <footer></footer>
+</body>
 
 
 
-  <body>
+</html>
