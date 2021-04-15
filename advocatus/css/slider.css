@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Open Sans", sans-serif;
+  src: url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700);
+  font-display: block; }
+@font-face {
+  font-family: "Playfair Display", serif;
+  src: url(https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;800);
+  font-display: block; }
 .slider {
   position: relative;
   display: grid;

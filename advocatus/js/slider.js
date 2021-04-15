@@ -52,7 +52,6 @@ class Slider {
     this.slides[index].setAttribute("aria-hidden", false);
     if (this.options.generateDots) {
       this.dots.forEach(dot => {
-        console.log(dot);
         dot.querySelector('button').classList.remove("slider-pagination__btn--active");
       });
       this.dots[index].querySelector('button').classList.add("slider-pagination__btn--active");

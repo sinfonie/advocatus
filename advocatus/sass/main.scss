@@ -15,6 +15,10 @@ button {
   background-color: transparent;
 }
 
+ul {
+  padding: 0;
+}
+
 section {
   width: 100%;
 }
@@ -54,9 +58,17 @@ button {
       flex-direction: column;
       top: 100%;
       padding: 1em;
+      transition: left 1s;
+      left: -100%;
     }
     @media (max-width: $screen-xs) {
       width: calc(100% - 2em);
+    }
+    &--show {
+      @media (max-width: $screen-md) {
+        transition: left 1s;
+        left: 0;
+      }
     }
     a {
       margin: 0 1em;
@@ -92,6 +104,17 @@ button {
     @media (min-width: $screen-md) {
       display: none;
     }
+    &:before {
+      content: "";
+      position: absolute;
+      height: calc(100% + 1px);
+      width: 100px;
+      left: 0;
+      top: 0;
+      @media (max-width: $screen-xs) {
+        width: 15vw;
+      }
+    }
   }
 }
 
@@ -121,6 +144,21 @@ button {
     border: 1px solid rgba($dark-color, 0.3);
     border-top-color: rgba($dark-color, 0.1);
     z-index: 5;
+    visibility: collapse;
+    &--show {
+      visibility: visible;
+    }
+  }
+  &__main-btn {
+    width: 50px;
+    &::before {
+      content: "";
+      position: absolute;
+      height: 51px;
+      width: inherit;
+      left: 0;
+      top: 0;
+    }
   }
   &__sizing-btn {
     font-family: $primary-font-family;
@@ -144,19 +182,33 @@ button {
 }
 
 .section {
-  min-height: $section-height;
+  min-height: 60vh;
   &--hero {
     color: $light-color;
   }
   &--dark {
     background-color: $dark-color;
-    color: $light-color;
+    color: rgba($light-color, 0.8);
     counter-increment: myCounter;
+    h2,
+    h3 {
+      color: rgba($light-color, 0.8);
+    }
+    p {
+      color: rgba($light-color, 0.7);
+    }
   }
   &--light {
     background-color: $light-color;
     color: $dark-color;
     counter-increment: myCounter;
+    h2,
+    h3 {
+      color: $dark-color;
+    }
+    p {
+      color: rgba($dark-color, 0.8);
+    }
   }
 
   &__header {
@@ -187,7 +239,6 @@ button {
       font-size: 1.3em;
       font-weight: 600;
       margin: 0;
-      font-weight: initial;
     }
     & h3 {
       font-size: 0.7em;
@@ -232,6 +283,7 @@ button {
       height: 100%;
       min-width: 100%;
       max-height: calc(85vh / 3);
+      min-height: 300px;
     }
     & h3 {
       margin: 0.5em 0 0;
@@ -324,8 +376,87 @@ button {
 
 .lines {
   @media (min-width: $screen-md) {
-    @include lines;
     min-height: inherit;
     transform: translate3d(0, 0, 0);
+    &--light {
+      @include light-lines;
+    }
+    &--dark {
+      @include dark-lines;
+    }
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 30px;
+  @media (min-width: $screen-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  &__card {
+    display: grid;
+    grid-template-columns: auto;
+    @media (min-width: $screen-md) {
+      grid-template-columns: 30% auto;
+    }
+  }
+  &__icon {
+    color: $primary-color;
+    margin: auto;
+    @media (min-width: $screen-md) {
+      margin: 0 0 auto auto;
+    }
+  }
+  &__descripton {
+    margin-left: 1em;
+    h3 {
+      margin: 0;
+      font-size: 1em;
+    }
+    p {
+      font-family: $secondary-font-family;
+      font-size: 0.6em;
+      line-height: 1.5;
+    }
+  }
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  @media (max-width: $screen-md) {
+    grid-template-columns: 1fr;
+  }
+  &__header {
+    font-weight: 600;
+    font-size: 1em;
+  }
+  &__column {
+    padding: 1em 1em 1em 0;
+  }
+  &__paragraph {
+    font-size: 0.6em;
+    line-height: 2;
+    font-family: $secondary-font-family;
+    color: rgba($dark-color, 0.6);
+    font-weight: 600;
+  }
+}
+
+.list-year {
+  list-style: none;
+  font-family: $secondary-font-family;
+  &__entry {
+    display: inline-flex;
+    font-size: 0.7em;
+  }
+  &__year {
+    margin: auto;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  &__content {
+    margin: 1em;
   }
 }

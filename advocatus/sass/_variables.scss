@@ -1,4 +1,18 @@
 @import "compass/css3";
+//@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Playfair+Display:wght@400;500;700;800&display=swap");
+
+@font-face {
+  font-family: "Open Sans", sans-serif;
+  src: url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700);
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Playfair Display", serif;
+  src: url(https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;800);
+  font-display: block;
+}
+
 
 $light-color: #fff;
 $dark-color: #111111;
@@ -11,44 +25,100 @@ $secondary-font: normal 14px/1.25 $secondary-font-family;
 $font-icon: "FontAwesome";
 $font-color: #111111;
 
-// Media queries breakpoints
-// --------------------------------------------------
-
-// Extra small screen / phone
 $screen-xs: 480px !default;
 $screen-phone: $screen-xs !default;
 
-// Small screen / tablet
 $screen-sm: 768px !default;
 $screen-tablet: $screen-sm !default;
 
-// Medium screen / desktop
 $screen-md: 992px !default;
 $screen-desktop: $screen-md !default;
 
-// Large screen / wide desktop
 $screen-lg: 1200px !default;
 $screen-lg-desktop: $screen-lg !default;
 
-// So media queries don't overlap when required, provide a maximum
 $screen-xs-max: ($screen-sm - 1) !default;
 $screen-sm-max: ($screen-md - 1) !default;
 $screen-md-max: ($screen-lg - 1) !default;
 
-$section-height: 60vh;
+@mixin dark-lines {
+  background-image: extreme($primary-color, $a1: 1, $a2: 1), thirds($primary-color, $a1: 1, $a2: 1),
+    fourths($primary-color, $a1: 0, $a2: 1, $a3: 0);
+}
 
+@mixin light-lines {
+  background-image: extreme($dark-color, $a1: 1, $a2: 1), fourths($dark-color, $a1: 1, $a2: 1, $a3: 1);
+}
 
-$one-third: linear-gradient(90deg, transparent, transparent calc(100% / 3), rgba($dark-color, 0.3) calc(100% / 3 + 1px), transparent calc(100% / 3 + 1px));
-$two-thirds: linear-gradient(90deg, transparent, transparent calc(100% / 3 * 2 - 1px), rgba($dark-color, 0.3) calc(100% / 3 * 2), transparent calc(100% / 3 * 2 - 1px));
-$one-fourth: linear-gradient(90deg, transparent, transparent calc(100% / 4), rgba($dark-color, 0.3) calc(100% / 4 + 1px), transparent calc(100% / 4 + 1px));
-$half: linear-gradient(90deg, transparent, transparent calc(100% / 2), rgba($dark-color, 0.3) calc(100% / 2 + 1px), transparent calc(100% / 2 + 1px));
-$three-fourth: linear-gradient(90deg, transparent, transparent calc(100% / 4 * 3 - 1px), rgba($dark-color, 0.3) calc(100% / 4 * 3), transparent calc(100% / 4 * 3 - 1px));
+@function extreme($color, $a1, $a2) {
+  $val1: null;
+  $val2: null;
+  @if $a1 == 1 {
+    $val1: linear-gradient(90deg, transparent, transparent 0, rgba($color, 0.2) 1px, transparent 1px);
+  }
+  @if $a2 == 1 {
+    $val2: linear-gradient(90deg, transparent, transparent calc(100% - 1px), rgba($color, 0.2) 100%, transparent 100%);
+  }
+  $result: $val1, $val2;
+  @return $result;
+}
 
-$first-last: (
-  linear-gradient(90deg, transparent, transparent 0, rgba($dark-color, 0.3) 1px, transparent 1px),
-  linear-gradient(90deg, transparent, transparent calc(100% - 1px), rgba($dark-color, 0.3) 100%, transparent 100%),
-);
+@function thirds($color, $a1, $a2) {
+  $val1: null;
+  $val2: null;
+  @if $a1 == 1 {
+    $val1: linear-gradient(
+      90deg,
+      transparent,
+      transparent calc(100% / 3),
+      rgba($color, 0.2) calc(100% / 3 + 1px),
+      transparent calc(100% / 3 + 1px)
+    );
+  }
+  @if $a2 == 1 {
+    $val2: linear-gradient(
+      90deg,
+      transparent,
+      transparent calc(100% / 3 * 2 - 1px),
+      rgba($color, 0.2) calc(100% / 3 * 2),
+      transparent calc(100% / 3 * 2 - 1px)
+    );
+  }
+  $result: $val1, $val2;
+  @return $result;
+}
 
-@mixin lines {
-  background-image: $first-last, $one-fourth, $one-third, $half, $two-thirds, $three-fourth;
+@function fourths($color, $a1, $a2, $a3) {
+  $val1: null;
+  $val2: null;
+  $val3: null;
+  @if $a1 == 1 {
+    $val1: linear-gradient(
+      90deg,
+      transparent,
+      transparent calc(100% / 4),
+      rgba($color, 0.2) calc(100% / 4 + 1px),
+      transparent calc(100% / 4 + 1px)
+    );
+  }
+  @if $a2 == 1 {
+    $val2: linear-gradient(
+      90deg,
+      transparent,
+      transparent calc(100% / 2),
+      rgba($color, 0.2) calc(100% / 2 + 1px),
+      transparent calc(100% / 2 + 1px)
+    );
+  }
+  @if $a3 == 1 {
+    $val3: linear-gradient(
+      90deg,
+      transparent,
+      transparent calc(100% / 4 * 3 - 1px),
+      rgba($color, 0.2) calc(100% / 4 * 3),
+      transparent calc(100% / 4 * 3 - 1px)
+    );
+  }
+  $result: $val1, $val2, $val3;
+  @return $result;
 }
