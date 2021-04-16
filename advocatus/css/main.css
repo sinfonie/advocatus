@@ -238,11 +238,12 @@ button {
       content: counter(myCounter);
       font-family: "Open Sans", sans-serif;
       position: absolute;
-      font-weight: 10em;
       font-size: 180px;
       z-index: -1;
       top: -45px;
       color: rgba(var(--dark-font-color), 0.1); }
+    .section__header--dark:after {
+      color: rgba(var(--light-font-color), 0.1); }
     .section__header h2 {
       font-size: 1.3em;
       font-weight: 600;
@@ -330,6 +331,18 @@ button {
       font-size: 1em;
       margin: 0;
       font-family: "Open Sans", sans-serif; }
+
+.clients-section {
+  position: relative; }
+  .clients-section__hero {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url(/img/clients-say.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: brightness(15%); }
 
 .button__primary {
   font-family: "Playfair Display", serif;
