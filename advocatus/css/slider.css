@@ -6,6 +6,16 @@
   font-family: "Playfair Display", serif;
   src: url(https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;800);
   font-display: block; }
+:root {
+  --light-color: 255, 255, 255;
+  --dark-color: 17, 17, 17;
+  --primary-color: 232, 191, 93;
+  --light-background-color: 255, 255, 255;
+  --dark-background-color: 17, 17, 17;
+  --light-font-color: 255, 255, 255;
+  --dark-font-color: 17, 17, 17;
+  --primary-font-color: 232, 191, 93; }
+
 .slider {
   position: relative;
   display: grid;
@@ -35,7 +45,7 @@
       content: "";
       width: 100%;
       height: 100%;
-      background: linear-gradient(rgba(0, 0, 0, 0) 20%, #111111); }
+      background: linear-gradient(transparent 20%, rgba(var(--dark-color), 1)); }
     .slider__slide--active {
       opacity: 1;
       z-index: 1; }
@@ -54,7 +64,7 @@
     overflow: hidden;
     position: relative;
     z-index: 1;
-    color: #fff; }
+    color: rgb(var(--light-font-color)); }
     @media (max-width: 992px) {
       .slider-navigation__btn {
         display: none; } }
@@ -94,9 +104,9 @@
       height: 0.9rem;
       border-radius: 50%;
       transition: 0.5s all;
-      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.5); }
+      box-shadow: inset 0 0 0 2px rgba(var(--light-font-color), 0.5); }
     .slider-pagination__btn--active:before {
-      background: #fff;
+      background: rgb(var(--light-font-color));
       transform: translate(-50%, -50%) scale(1.2); }
 
 /*# sourceMappingURL=slider.css.map */

@@ -1,4 +1,3 @@
-@import "compass/css3";
 //@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Playfair+Display:wght@400;500;700;800&display=swap");
 
 @font-face {
@@ -13,17 +12,50 @@
   font-display: block;
 }
 
+/* colors */
 
-$light-color: #fff;
-$dark-color: #111111;
-$primary-color: #e8bf5d;
+:root {
+  --light-color: 255, 255, 255;
+  --dark-color: 17, 17, 17;
+  --primary-color: 232, 191, 93;
+  --light-background-color: --light-color;
+  --dark-background-color: --dark-color;
+  --light-font-color: --light-color;
+  --dark-font-color: --dark-color;
+  --primary-font-color: --primary-color;
+
+  --primary-font-size: 25px;
+  --secondary-font-size: 14px;
+
+  --dark-background-lines: var(--light-color);
+  --light-background-lines: var(--dark-color);
+}
+
+$light-color: var(--light-color);
+$dark-color: var(--dark-color);
+$primary-color: var(--primary-color);
+
+$dark-background-color: var(--dark-background-color);
+$light-background-color: var(--light-background-color);
+
+$dark-font-color: var(--dark-font-color);
+$light-font-color: var(--light-font-color);
+$primary-font-color: var(--primary-font-color);
+
+$dark-background-lines: var(--dark-background-lines);
+$light-background-lines: var(--light-background-lines);
+
+/* fonts */
 
 $primary-font-family: "Playfair Display", serif;
 $secondary-font-family: "Open Sans", sans-serif;
-$primary-font: normal 25px/1.25 $primary-font-family;
-$secondary-font: normal 14px/1.25 $secondary-font-family;
+
+$primary-font: normal var(--primary-font-size) / 1.25 $primary-font-family;
+$secondary-font: normal var(--secondary-font-size) / 1.25 $secondary-font-family;
 $font-icon: "FontAwesome";
-$font-color: #111111;
+$font-color: $dark-color;
+
+/* sizing */
 
 $screen-xs: 480px !default;
 $screen-phone: $screen-xs !default;
@@ -41,13 +73,15 @@ $screen-xs-max: ($screen-sm - 1) !default;
 $screen-sm-max: ($screen-md - 1) !default;
 $screen-md-max: ($screen-lg - 1) !default;
 
-@mixin dark-lines {
-  background-image: extreme($primary-color, $a1: 1, $a2: 1), thirds($primary-color, $a1: 1, $a2: 1),
-    fourths($primary-color, $a1: 0, $a2: 1, $a3: 0);
+/* background linear-gradient */
+
+@mixin dark-lines($color) {
+  background-image: extreme($color, $a1: 1, $a2: 1), thirds($color, $a1: 1, $a2: 1),
+    fourths($color, $a1: 0, $a2: 1, $a3: 0);
 }
 
-@mixin light-lines {
-  background-image: extreme($dark-color, $a1: 1, $a2: 1), fourths($dark-color, $a1: 1, $a2: 1, $a3: 1);
+@mixin light-lines($color) {
+  background-image: extreme($color, $a1: 1, $a2: 1), fourths($color, $a1: 1, $a2: 1, $a3: 1);
 }
 
 @function extreme($color, $a1, $a2) {

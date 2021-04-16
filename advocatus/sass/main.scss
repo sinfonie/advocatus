@@ -1,17 +1,44 @@
 @import "_variables";
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font: $primary-font;
-  color: $font-color;
+  color: rgba($dark-font-color, 1);
   margin: 0;
   padding: 0;
   counter-reset: myCounter;
 }
 
+body.contrast {
+  --primary-color: 232, 191, 93;
+  --light-background-color: 17, 17, 17;
+  --light-font-color: 232, 191, 93;
+  --dark-font-color: 232, 191, 93;
+  --dark-background-lines: 17, 17, 17;
+  --light-background-lines: 17, 17, 17;
+}
+
+body.sizing-large {
+  --primary-font-size: 26px;
+  --secondary-font-size: 15px;
+}
+
+body.sizing-larger {
+  --primary-font-size: 28px;
+  --secondary-font-size: 16px;
+}
+
+header {
+  background-color: rgb($light-background-color);
+}
+
 a,
 button {
   text-decoration: none;
-  color: $font-color;
+  color: rgb($dark-font-color);
   background-color: transparent;
 }
 
@@ -26,7 +53,6 @@ section {
 button {
   outline: none;
   border: none;
-  background-color: #0000;
   font-size: 1em;
   cursor: pointer;
 }
@@ -45,16 +71,15 @@ button {
   position: relative;
   &__links {
     display: flex;
-    font: $secondary-font;
     margin-left: auto;
     margin-right: 1em;
-    padding: 0.5em 0;
+    padding: 0;
     z-index: 4;
     @media (max-width: $screen-md) {
       position: absolute;
       display: flex;
       margin: 0;
-      background-color: $light-color;
+      background-color: rgb($light-background-color);
       flex-direction: column;
       top: 100%;
       padding: 1em;
@@ -72,13 +97,14 @@ button {
     }
     a {
       margin: 0 1em;
+      font: $secondary-font;
       padding: 5px 0;
       border-bottom: solid transparent 5px;
       @media (max-width: $screen-md) {
         width: max-content;
       }
       &:hover {
-        border-color: $primary-color;
+        border-color: rgb($primary-color);
         transition: border 0.5s ease-out;
       }
     }
@@ -87,7 +113,7 @@ button {
     font-weight: 600;
     margin: 0 1em;
     span {
-      color: $primary-color;
+      color: rgb($primary-font-color);
     }
     @media (max-width: $screen-xs) {
       margin: 0 auto;
@@ -96,7 +122,7 @@ button {
   &__bars {
     margin: 0 1em;
     &:hover {
-      color: $primary-color;
+      color: rgb($primary-font-color);
     }
     @media (max-width: $screen-xs) {
       margin: 0 5px;
@@ -136,11 +162,11 @@ button {
   }
   &__sizing-menu {
     position: absolute;
-    left: 0;
+    left: 6px;
     display: flex;
     flex-direction: column;
     top: calc(20px + 100%);
-    background-color: $light-color;
+    background-color: rgb($light-background-color);
     border: 1px solid rgba($dark-color, 0.3);
     border-top-color: rgba($dark-color, 0.1);
     z-index: 5;
@@ -154,7 +180,7 @@ button {
     &::before {
       content: "";
       position: absolute;
-      height: 51px;
+      height: 55px;
       width: inherit;
       left: 0;
       top: 0;
@@ -165,7 +191,7 @@ button {
     margin-right: auto;
     transition: color 0.5s ease-out;
     &:hover {
-      color: $primary-color;
+      color: rgb($primary-font-color);
       transition: color 0.5s ease-out;
     }
     & span {
@@ -184,30 +210,30 @@ button {
 .section {
   min-height: 60vh;
   &--hero {
-    color: $light-color;
+    color: rgb($light-font-color);
   }
   &--dark {
-    background-color: $dark-color;
-    color: rgba($light-color, 0.8);
+    background-color: rgb($dark-background-color);
+    color: rgba($light-font-color, 0.8);
     counter-increment: myCounter;
     h2,
     h3 {
-      color: rgba($light-color, 0.8);
+      color: rgba($light-font-color, 0.8);
     }
     p {
-      color: rgba($light-color, 0.7);
+      color: rgba($light-font-color, 0.7);
     }
   }
   &--light {
-    background-color: $light-color;
-    color: $dark-color;
+    background-color: rgb($light-background-color);
+    color: rgb($dark-font-color);
     counter-increment: myCounter;
     h2,
     h3 {
-      color: $dark-color;
+      color: rgb($dark-font-color);
     }
     p {
-      color: rgba($dark-color, 0.8);
+      color: rgba($dark-font-color, 0.8);
     }
   }
 
@@ -218,7 +244,7 @@ button {
     margin: 0 1em 1.5em 0.5em;
     &:before {
       content: "";
-      background: $primary-color;
+      background: rgb($primary-color);
       position: absolute;
       bottom: 0.2em;
       left: -0.5em;
@@ -233,7 +259,7 @@ button {
       font-size: 180px;
       z-index: -1;
       top: -45px;
-      color: rgba($dark-color, 0.1);
+      color: rgba($dark-font-color, 0.1);
     }
     & h2 {
       font-size: 1.3em;
@@ -291,11 +317,11 @@ button {
       transition: color 0.5s ease-out;
       &:hover {
         transition: color 0.5s ease-out;
-        color: $primary-color;
+        color: rgb($primary-font-color);
       }
     }
     & span {
-      color: rgba($dark-color, 0.8);
+      color: rgba($dark-font-color, 0.8);
       font-size: 0.6em;
       font-family: $secondary-font-family;
     }
@@ -329,7 +355,7 @@ button {
     }
     &:before {
       content: "";
-      background: $primary-color;
+      background: rgb($primary-color);
       position: absolute;
       bottom: 0.2em;
       left: -0.5em;
@@ -352,9 +378,9 @@ button {
   &__primary {
     font-family: $primary-font-family;
     font-size: 0.7em;
-    background-color: $primary-color;
+    background-color: rgb($primary-color);
     border-radius: 20px;
-    color: $dark-color;
+    color: rgb($dark-color);
     padding: 1em 3em;
     font-weight: 600;
     &:hover {
@@ -379,10 +405,10 @@ button {
     min-height: inherit;
     transform: translate3d(0, 0, 0);
     &--light {
-      @include light-lines;
+      @include light-lines($light-background-lines);
     }
     &--dark {
-      @include dark-lines;
+      @include dark-lines($dark-background-lines);
     }
   }
 }
@@ -402,7 +428,7 @@ button {
     }
   }
   &__icon {
-    color: $primary-color;
+    color: rgb($primary-font-color);
     margin: auto;
     @media (min-width: $screen-md) {
       margin: 0 0 auto auto;
@@ -439,7 +465,7 @@ button {
     font-size: 0.6em;
     line-height: 2;
     font-family: $secondary-font-family;
-    color: rgba($dark-color, 0.6);
+    color: rgba($dark-font-color, 0.6);
     font-weight: 600;
   }
 }
